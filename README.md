@@ -98,12 +98,47 @@ scripts\run_web_labs.cmd
 scripts\run_lab8.cmd
 ```
 
+### Windows PHP Setup (ZIP Method)
+
+If `scripts\run_lab8.cmd` says php is not found, install PHP from ZIP using these steps:
+
+1. Download PHP 8.x for Windows (x64, Thread Safe ZIP).
+2. Extract to a fixed location, for example: `C:\tools\php-8.3.x`
+3. Add that folder to PATH:
+
+- Open Environment Variables.
+- Add `C:\tools\php-8.3.x` to Path.
+
+4. Open a new Command Prompt and verify:
+
+```bat
+php -v
+```
+
+5. In the PHP folder, copy `php.ini-development` to `php.ini`.
+6. Edit `php.ini` and ensure these are enabled:
+
+- `extension_dir = "ext"`
+- `extension=pdo_mysql`
+- `extension=mysqli`
+
+7. Verify extensions:
+
+```bat
+php -m
+```
+
+Make sure `PDO`, `pdo_mysql`, and `mysqli` are listed.
+
 ### URLs
 
 - lab6a: http://localhost:8080/lab6a/
 - lab7a employee: http://localhost:8080/lab7a/e/index.jsp
 - lab7a book: http://localhost:8080/lab7a/h/index.jsp
 - lab8 PHP: http://127.0.0.1:8088/a.php
+
+For lab8 with the provided scripts, use `/a.php` and `/b.php`.
+Do not use `/lab8/a.php` because the script serves the `lab8` folder itself as web root.
 
 ### Stop Services
 
