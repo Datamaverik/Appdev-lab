@@ -1,0 +1,59 @@
+<!-- Write a JavaScript to display the Date (as a number), Day (as a
+ string), Month (as a string) and Year (as a four digit number) that
+ is seven days before and after the Current Date -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Date Information</title>
+    <script>
+        function displayDateInfo() {
+            // Get current date
+            let currentDate = new Date();
+
+            // Get seven days before the current date
+            let sevenDaysBefore = new Date(currentDate);
+            sevenDaysBefore.setDate(sevenDaysBefore.getDate() - 7);
+
+            // Get seven days after the current date
+            let sevenDaysAfter = new Date(currentDate);
+            sevenDaysAfter.setDate(sevenDaysAfter.getDate() + 7);
+
+            // Display information
+            document.getElementById("output").innerHTML = 
+                "<b>Current Date:</b> " + currentDate.getDate() + "<br>" +
+                "<b>Day:</b> " + getDayAsString(currentDate.getDay()) + "<br>" +
+                "<b>Month:</b> " + getMonthAsString(currentDate.getMonth()) + "<br>" +
+                "<b>Year:</b> " + currentDate.getFullYear() + "<br><br>" +
+                "<b>Seven Days Before:</b> " + sevenDaysBefore.getDate() + "<br>" +
+                "<b>Day:</b> " + getDayAsString(sevenDaysBefore.getDay()) + "<br>" +
+                "<b>Month:</b> " + getMonthAsString(sevenDaysBefore.getMonth()) + "<br>" +
+                "<b>Year:</b> " + sevenDaysBefore.getFullYear() + "<br><br>" +
+                "<b>Seven Days After:</b> " + sevenDaysAfter.getDate() + "<br>" +
+                "<b>Day:</b> " + getDayAsString(sevenDaysAfter.getDay()) + "<br>" +
+                "<b>Month:</b> " + getMonthAsString(sevenDaysAfter.getMonth()) + "<br>" +
+                "<b>Year:</b> " + sevenDaysAfter.getFullYear();
+        }
+
+        function getDayAsString(day) {
+            const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            return daysOfWeek[day];
+        }
+
+        function getMonthAsString(month) {
+            const monthsOfYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            return monthsOfYear[month];
+        }
+    </script>
+</head>
+<body>
+    <h1>Date Information</h1>
+    <button onclick="displayDateInfo()">Display Date Information</button>
+    <div id="output"></div>
+</body>
+</html>
+
+
+
+Write a JavaScript to display the Date (as a number), Day (as a  
+string), Month (as a string) and Year (as a four digit number) that      
+is seven days before and after the Current Date. 

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Filters</title>
+<style>
+    canvas {
+        display: block;
+        margin: auto;
+    }
+</style>
+</head>
+<body>
+
+<!-- Original Image -->
+<img id="originalImage" src="image.jpg" alt="Original Image" style="display: none;">
+
+<!-- Canvas for Image Manipulation -->
+<canvas id="imageCanvas"></canvas>
+
+<script>
+    // Get the original image
+    var originalImage = document.getElementById('originalImage');
+
+    // Create canvas element for image manipulation
+    var canvas = document.getElementById('imageCanvas');
+    var ctx = canvas.getContext('2d');
+
+    // Function to draw the image on the canvas
+    function drawImage() {
+        // Set canvas dimensions to match the image
+        canvas.width = originalImage.width;
+        canvas.height = originalImage.height;
+
+        // Draw the original image on the canvas
+        ctx.drawImage(originalImage, 0, 0);
+    }
+
+    // Wait for the image to load before drawing it onto the canvas
+    originalImage.onload = drawImage;
+
+    // Function to flip the image horizontally
+    function flipHorizontal() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.scale(-1, 1);
+        ctx.drawImage(originalImage, -canvas.width, 0);
+        ctx.scale(-1, 1);
+    }
+
+    // Function to flip the image vertically
+    function flipVertical() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.scale(1, -1);
+        ctx.drawImage(originalImage, 0, -canvas.height);
+        ctx.scale(1, -1);
+    }
+
+    // Function to apply transparency effect using Chroma filter
+    function applyTransparency() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.filter = 'opacity(0.5)';
+        ctx.drawImage(originalImage, 0, 0);
+        ctx.filter = 'none';
+    }
+
+    // Function to produce the negative image effect using Invert filter
+    function applyNegative() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.filter = 'invert(100%)';
+        ctx.drawImage(originalImage, 0, 0);
+        ctx.filter = 'none';
+    }
+
+    // Function to produce the grayscale image effect using Gray filter
+    function applyGrayscale() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.filter = 'grayscale(100%)';
+        ctx.drawImage(originalImage, 0, 0);
+        ctx.filter = 'none';
+    }
+
+    // Function to produce the x-ray image effect using Xray filter
+    function applyXray() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.filter = 'invert(75%) sepia(100%)';
+        ctx.drawImage(originalImage, 0, 0);
+        ctx.filter = 'none';
+    }
+</script>
+
+<!-- Buttons to Apply Filters -->
+<button onclick="flipHorizontal()">Flip Horizontal</button>
+<button onclick="flipVertical()">Flip Vertical</button>
+<button onclick="applyTransparency()">Apply Transparency</button>
+<button onclick="applyNegative()">Negative Image</button>
+<button onclick="applyGrayscale()">Grayscale Image</button>
+<button onclick="applyXray()">X-Ray Image</button>
+
+</body>
+</html>

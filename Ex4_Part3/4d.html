@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greeting According to Time</title>
+    <script>
+        function displayGreeting() {
+            // Get the current time
+            let currentTime = new Date();
+            let currentHour = currentTime.getHours();
+
+            // Define the greeting message based on the time of the day
+            let greeting;
+            if (currentHour >= 5 && currentHour < 12) {
+                greeting = "Good Morning";
+            } else if (currentHour >= 12 && currentHour < 17) {
+                greeting = "Good Afternoon";
+            } else if (currentHour >= 17 && currentHour < 20) {
+                greeting = "Good Evening";
+            } else {
+                greeting = "Good Night";
+            }
+
+            // Display the current time and greeting message
+            document.getElementById("currentTime").innerText = "Current Time: " + currentTime.toLocaleTimeString();
+            document.getElementById("greeting").innerText = greeting;
+        }
+
+        // Refresh the display every second
+        setInterval(displayGreeting, 1000);
+    </script>
+</head>
+<body onload="displayGreeting()">
+    <h1>Greeting According to Time</h1>
+    <div id="currentTime"></div>
+    <div id="greeting"></div>
+</body>
+</html>

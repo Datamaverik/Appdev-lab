@@ -1,0 +1,30 @@
+/* User Content CSS File */
+
+body {
+    background-color: white;
+    color: black;
+  }
+  
+  a:link {
+    color: blue;
+  }
+  
+  a:visited {
+    color: purple;
+  }
+  
+  a:active {
+    color: red;
+  }
+  
+  input {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+  }
+  /* Write your own user Content.css file. Make all backgrounds white and all text   
+        black. Make all unvisited links blue, visited links purple, and active links red.   
+        Have all input fields use a white background with a black border and black text.   
+        Don’t display any images. */
+
+  

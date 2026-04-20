@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click Elements</title>
+</head>
+<body>
+
+<!-- Image Element -->
+<img id="clickImage" src="image.jpg" alt="Click Image" style="width: 100px; height: 100px;">
+<!-- Table Element -->
+<table id="clickTable" border="1">
+    <tr>
+        <td>Click Me!</td>
+    </tr>
+</table>
+
+<script>
+    // Event handler for image click
+    function imageClickHandler(event) {
+        event.stopPropagation();
+        alert("You clicked the image");
+    }
+
+    // Event handler for table click
+    function tableClickHandler(event) {
+        event.stopPropagation();
+        alert("You clicked the table");
+    }
+
+    // Add event listeners
+    document.getElementById('clickImage').addEventListener('click', imageClickHandler, true);
+    document.getElementById('clickTable').addEventListener('click', tableClickHandler, true);
+</script>
+
+</body>
+</html>

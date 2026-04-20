@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Merge Sort</title>
+    <script>
+        function mergeSort(arr) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+
+            const mid = Math.floor(arr.length / 2);
+            const left = arr.slice(0, mid);
+            const right = arr.slice(mid);
+
+            return merge(mergeSort(left), mergeSort(right));
+        }
+
+        function merge(left, right) {
+            let result = [];
+            let leftIndex = 0;
+            let rightIndex = 0;
+
+            while (leftIndex < left.length && rightIndex < right.length) {
+                if (left[leftIndex] < right[rightIndex]) {
+                    result.push(left[leftIndex]);
+                    leftIndex++;
+                } else {
+                    result.push(right[rightIndex]);
+                    rightIndex++;
+                }
+            }
+
+            return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+        }
+
+        function performMergeSort() {
+            let input = prompt("Enter the numbers separated by commas:").split(",");
+            let numbers = input.map(num => parseInt(num.trim()));
+
+            let sortedNumbers = mergeSort(numbers);
+
+            alert("Sorted numbers: " + sortedNumbers.join(", "));
+        }
+    </script>
+</head>
+<body>
+    <h1>Merge Sort</h1>
+    <button onclick="performMergeSort()">Perform Merge Sort</button>
+</body>
+</html>

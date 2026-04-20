@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Departmental Store</title>
+<style>
+    .frame {
+        float: left;
+        border: 1px solid black;
+        box-sizing: border-box;
+        height: 400px;
+    }
+
+    #leftFrame {
+        width: 30%;
+    }
+
+    #rightFrame {
+        width: 70%;
+    }
+
+    #itemList {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #itemList li {
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    #itemList li:hover {
+        background-color: lightgray;
+    }
+
+    #itemImage {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+</style>
+<script>
+    function displayItem(itemName, itemPrice, itemImage) {
+        var imageElement = parent.document.getElementById('itemImage');
+        imageElement.src = itemImage;
+        imageElement.alt = itemName; // Set alt text for accessibility
+        alert("Price of " + itemName + ": $" + itemPrice);
+    }
+
+    function clearImage() {
+        parent.document.getElementById('itemImage').src = '';
+    }
+</script>
+</head>
+<body>
+
+<div class="frame" id="leftFrame">
+    <ul id="itemList">
+        <li onclick="displayItem('Shirt', 25.99, 'shirt.jpg')">Shirt</li>
+        <li onclick="displayItem('Jeans', 35.99, 'jeans.jpg')">Jeans</li>
+        <li onclick="displayItem('Shoes', 45.99, 'shoes.jpg')">Shoes</li>
+    </ul>
+</div>
+
+<div class="frame" id="rightFrame">
+    <img id="itemImage" src="" alt="Item Image">
+</div>
+
+</body>
+</html>

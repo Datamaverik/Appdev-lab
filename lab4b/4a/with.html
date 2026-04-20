@@ -1,0 +1,59 @@
+<!-- Write a JavaScript program to perform the following String
+ Manipulation Operations with and without using the methods
+ of String Object.
+I. To search for the last occurrence of a substring in a
+given string
+II.To extract a substring from a given string
+III.To split the given string into various substrings -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Manipulation Operations with String Object Methods</title>
+    <script>
+        function searchLastOccurrence(string, substring) {
+            let lastIndex = string.lastIndexOf(substring);
+            return lastIndex;
+        }
+
+        function extractSubstring(string, start, length) {
+            let substring = string.substr(start, length);
+            return substring;
+        }
+
+        function splitString(string, separator) {
+            let substrings = string.split(separator);
+            return substrings;
+        }
+
+        function performStringOperations() {
+            let string = prompt("Enter the string:");
+            let substring = prompt("Enter the substring to search:");
+            let start = parseInt(prompt("Enter the starting index to extract substring:"));
+            let length = parseInt(prompt("Enter the length of substring to extract:"));
+            let separator = prompt("Enter the separator to split the string:");
+
+            let lastOccurrenceIndex = searchLastOccurrence(string, substring);
+            let extractedSubstring = extractSubstring(string, start, length);
+            let splittedString = splitString(string, separator);
+
+            alert("Last occurrence of '" + substring + "' found at index: " + lastOccurrenceIndex +
+                  "\nExtracted substring: " + extractedSubstring +
+                  "\nSplitted string: " + splittedString.join(", "));
+        }
+    </script>
+</head>
+<body>
+    <h1>String Manipulation Operations with String Object Methods</h1>
+    <button onclick="performStringOperations()">Perform Operations</button>
+</body>
+</html>
+
+
+
+. Write a JavaScript program to perform the following String  
+       Manipulation Operations with and without using the methods   
+       of String Object. 
+I.  To search for the last occurrence of a substring in a 
+given string 
+II. To extract a substring from a given string 
+III. To split the given string into various substrings 

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Puzzle</title>
+<style>
+    /* Style for the puzzle board */
+    table {
+        border-collapse: collapse;
+    }
+
+    td {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        padding: 0;
+        margin: 0;
+    }
+
+    img {
+        width: 400px;
+        height: 400px;
+        display: none; /* Hide the original image */
+    }
+</style>
+<script>
+    // Function to initialize the puzzle
+    function initializePuzzle() {
+        // Get the image element
+        var image = document.getElementById('sourceImage');
+
+        // Create an off-screen canvas to draw the image
+        var offscreenCanvas = document.createElement('canvas');
+        var offscreenContext = offscreenCanvas.getContext('2d');
+        offscreenCanvas.width = image.width;
+        offscreenCanvas.height = image.height;
+        offscreenContext.drawImage(image, 0, 0);
+
+        // Divide the image into 16 pieces and store them in an array
+        var pieces = [];
+        var pieceWidth = offscreenCanvas.width / 4;
+        var pieceHeight = offscreenCanvas.height / 4;
+        for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 4; j++) {
+                var canvas = document.createElement('canvas');
+                canvas.width = pieceWidth;
+                canvas.height = pieceHeight;
+                var context = canvas.getContext('2d');
+                context.drawImage(offscreenCanvas, j * pieceWidth, i * pieceHeight, pieceWidth, pieceHeight, 0, 0, pieceWidth, pieceHeight);
+                pieces.push(canvas);
+            }
+        }
+
+        // Discard one piece (randomly)
+        pieces.splice(Math.floor(Math.random() * 16), 1);
+
+        // Shuffle the pieces
+        pieces.sort(function() {
+            return 0.5 - Math.random();
+        });
+
+        // Populate the table with shuffled pieces
+        var cells = document.querySelectorAll('td');
+        for (var k = 0; k < cells.length; k++) {
+            cells[k].appendChild(pieces[k]);
+        }
+    }
+</script>
+</head>
+<body onload="initializePuzzle()">
+
+<!-- Image -->
+<img id="sourceImage" src="image.jpg" alt="Source Image">
+
+<!-- Puzzle Table -->
+<table>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

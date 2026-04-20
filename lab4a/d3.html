@@ -1,0 +1,63 @@
+<!-- Initially, you might think that n/2 is the upper limit for which you must test to see whether a
+number is prime, but you only need go as high as the square root of n. Why? Rewrite the
+program, and run it both ways. Estimate the performance improvement.
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Numbers between 1 and 1000</title>
+    <script>
+        function isPrime(number) {
+            if (number <= 1) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(number); i++) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function findPrimes() {
+            var primes = [];
+            var tests = 0;
+
+            for (let i = 2; i <= 1000; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                }
+                tests++;
+            }
+
+            // Display results in textarea
+            document.getElementById("result-sqrt").value = "Prime numbers between 1 and 1000 (with sqrt limit):\n\n";
+            document.getElementById("result-sqrt").value += primes.join(", ") + "\n\n";
+            document.getElementById("result-sqrt").value += "Number of tests performed: " + tests;
+        }
+
+        function measureExecutionTime(func) {
+            var startTime = performance.now();
+            func();
+            var endTime = performance.now();
+            return endTime - startTime;
+        }
+
+        function comparePerformance() {
+            var executionTimeWithSqrtLimit = measureExecutionTime(findPrimes);
+
+            document.getElementById("performance-result-sqrt").innerHTML = "Execution time with square root limit: " + executionTimeWithSqrtLimit + " milliseconds";
+        }
+    </script>
+</head>
+<body>
+    <h2>Prime Numbers between 1 and 1000 (With Square Root Limit)</h2>
+    <button onclick="comparePerformance()">Compare Performance</button><br><br>
+    <textarea id="result-sqrt" rows="10" cols="50"></textarea><br><br>
+    <div id="performance-result-sqrt"></div>
+</body>
+</html>
+
+Initially, you might think that n/2 is the upper limit for which you must test to see whether a 
+number is prime, but you only need go as high as the square root of n. Why? Rewrite the 
+program, and run it both ways. Estimate the performance improvement. 

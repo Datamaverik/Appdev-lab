@@ -1,0 +1,40 @@
+<!ELEMENT letter (date, addressee, greeting, paragraph, list, closing, signature, name)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT addressee (name, address_one, address_two)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT address_one (#PCDATA)>
+<!ELEMENT address_two (#PCDATA)>
+<!ELEMENT greeting (#PCDATA)>
+<!ELEMENT paragraph (#PCDATA)>
+<!ELEMENT list (item+)>
+<!ELEMENT item (#PCDATA)>
+<!ELEMENT closing (#PCDATA)>
+<!ELEMENT signature (#PCDATA)>
+
+
+
+
+
+Convert the following XML document into an XHTML table using XSLT.  
+ <? Xml version = ”1.0”  ?> 
+       <? Xml : stylesheet type = ”text/xsl”  href = ”Students.xsl”  ?> 
+          <Students> 
+<Student> 
+<name>John</name> 
+<rollno>CS101</rollno> 
+<department>CSE</department> 
+<cgpa>9.5</cgpa> 
+</Student> 
+ <Student> 
+<name>Williams</name> 
+<rollno>CE034</rollno> 
+<department>CIVIL</department> 
+<cgpa>7.4</cgpa> 
+</Student> 
+<Student> 
+<name>Rohit</name> 
+<rollno>EC087</rollno> 
+<department>ECE</department> 
+<cgpa>8.7</cgpa> 
+</Student> 
+</Students>

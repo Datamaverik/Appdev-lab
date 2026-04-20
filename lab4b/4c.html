@@ -1,0 +1,98 @@
+<!--  Write a User-Defined function in Java Script to perform Binary
+ search. Get the ‘N’ number of elements dynamically from the user.
+ The user have to enter the key value to be searched through the
+ HTML form as designed below. When the user clicks the OK button,
+ the search result should be displayed in the corresponding text field as
+ either FOUND at “Index” – if the search key is present or NOT
+ FOUND – if the search key is not present. -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binary Search</title>
+    <script>
+        function binarySearch() {
+            // Get the number of elements
+            let numOfElements = parseInt(prompt("Enter the number of elements:"));
+            
+            // Get the elements from the user
+            let elements = [];
+            for (let i = 0; i < numOfElements; i++) {
+                elements.push(parseInt(prompt("Enter element " + (i + 1) + ":")));
+            }
+
+            // Get the search key from the user
+            let searchKey = parseInt(prompt("Enter the search key:"));
+
+            // Perform binary search
+            let result = performBinarySearch(elements, searchKey);
+
+            // Display the search result
+            if (result !== -1) {
+                document.getElementById("searchResult").value = "FOUND at index " + result;
+            } else {
+                document.getElementById("searchResult").value = "NOT FOUND";
+            }
+        }
+
+        function performBinarySearch(arr, key) {
+            let left = 0;
+            let right = arr.length - 1;
+
+            while (left <= right) {
+                let mid = Math.floor((left + right) / 2);
+
+                if (arr[mid] === key) {
+                    return mid;
+                } else if (arr[mid] < key) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+
+            return -1; // Not found
+        }
+    </script>
+</head>
+<body>
+    <h1>BINARY SEARCH</h1>
+    <label for="searchKey">Enter the Search Key:</label>
+    <input type="text" id="searchKey">
+    <br><br>
+    <label for="searchResult">Search Result:</label>
+    <input type="text" id="searchResult">
+    <br><br>
+    <button onclick="binarySearch()">OK</button>
+</body>
+</html>
+
+
+
+Write a User-Defined function in Java Script to perform Binary    
+search. Get the ‘N’ number of elements dynamically from the user. 
+The user have to enter the key value to be searched through the   
+HTML form as designed below. When the user clicks the OK button, 
+the search result should be displayed in the corresponding text field as 
+either FOUND at “Index” – if the search key is present or NOT  
+FOUND – if the search key is not present.  
+
+
+
+
+BINARYSEARCH
+ 
+ 
+ EntertheSearchKey
+ SearchResult
+ 
+ :
+ :
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  

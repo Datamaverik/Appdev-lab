@@ -1,0 +1,52 @@
+<!-- . Write a Java Script program to get N number of strings dynamically
+ from the user and arrange them in alphabetical order. Display the
+ strings in sorted order and also display those strings that begin with
+ ‘e’ / ‘E’. -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sort and Display Strings</title>
+    <script>
+        function sortAndDisplay() {
+            // Get the number of strings from the user
+            let numOfStrings = parseInt(prompt("Enter the number of strings:"));
+
+            // Array to store the entered strings
+            let stringsArray = [];
+
+            // Prompt user to enter strings and store them in the array
+            for (let i = 0; i < numOfStrings; i++) {
+                let str = prompt("Enter string " + (i + 1) + ":");
+                stringsArray.push(str);
+            }
+
+            // Sort the strings array alphabetically
+            stringsArray.sort();
+
+            // Display the sorted strings
+            document.getElementById("sortedStrings").innerHTML = "<b>Sorted Strings:</b> " + stringsArray.join(", ");
+
+            // Filter and display strings that begin with 'e' or 'E'
+            let eStrings = stringsArray.filter(str => str.charAt(0).toLowerCase() === 'e');
+            if (eStrings.length > 0) {
+                document.getElementById("eStrings").innerHTML = "<b>Strings starting with 'e' or 'E':</b> " + eStrings.join(", ");
+            } else {
+                document.getElementById("eStrings").innerHTML = "<b>No strings starting with 'e' or 'E' found.</b>";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Sort and Display Strings</h1>
+    <button onclick="sortAndDisplay()">OK</button>
+    <div id="sortedStrings"></div>
+    <div id="eStrings"></div>
+</body>
+</html>
+
+
+
+. Write a Java Script program to get N number of strings dynamically  
+from the user and arrange them in alphabetical order. Display the  
+strings in sorted order and also display those strings that begin with 
+‘e’ / ‘E’.

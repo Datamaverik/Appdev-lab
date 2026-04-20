@@ -1,0 +1,30 @@
+<!ELEMENT pets (pet+)>
+<!ELEMENT pet (name, age, type, color)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT color (#PCDATA)>
+
+
+
+
+ Write the DTD for the following XML document. 
+ 
+ 
+      <Books> 
+ <Book> 
+ <Isbn> 0 – 8447 – 768 </Isbn> 
+ <Title> XML in a Nutshell </Title> 
+ <Author> Harold, Elliotte Rusty </Author> 
+ </Book> 
+  <Book> 
+  <Isbn> 978 – 81 – 317 – 6235 – 6 </Isbn> 
+  <Title> Service – Oriented Architecture </Title> 
+  <Author> Thomas Erl </Author> 
+  </Book> 
+   <Book> 
+   <Isbn> 978 – 81 – 317 – 1869 – 8 </Isbn> 
+   <Title> XML and WebServices </Title> 
+   <Author> Ron Schmelzer </Author> 
+   </Book> 
+   </Books> 

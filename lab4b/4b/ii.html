@@ -1,0 +1,52 @@
+<!--  Write a JavaScript that inputs the date of birth from the user
+ dynamically and display the current age of the user in the following
+ format : ( ----Years, ----Months, ----Days). -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate Age</title>
+    <script>
+        function calculateAge() {
+            // Get user input for date of birth
+            let dobInput = document.getElementById("dob").value;
+            let dob = new Date(dobInput);
+            let now = new Date();
+
+            // Calculate age
+            let years = now.getFullYear() - dob.getFullYear();
+            let months = now.getMonth() - dob.getMonth();
+            let days = now.getDate() - dob.getDate();
+
+            // Adjust age if birth month is later than current month
+            if (months < 0 || (months === 0 && now.getDate() < dob.getDate())) {
+                years--;
+                months = 12 + months;
+            }
+
+            // Adjust age if birth day is later than current day
+            if (days < 0) {
+                months--;
+                let lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, dob.getDate());
+                days = Math.floor((now - lastMonth) / (1000 * 60 * 60 * 24));
+            }
+
+            // Display age
+            document.getElementById("output").innerHTML = "(" + years + " Years, " + months + " Months, " + days + " Days)";
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculate Age</h1>
+    <label for="dob">Enter Date of Birth:</label>
+    <input type="date" id="dob">
+    <button onclick="calculateAge()">Calculate Age</button>
+    <div id="output"></div>
+</body>
+</html>
+
+
+
+
+Write a JavaScript that inputs the date of birth from the user  
+dynamically and display the current age of the user in the following  
+format :   ( ----Years, ----Months, ----Days).

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Manipulation Operations</title>
+    <script>
+        function performStringOperations() {
+            // Input string
+            let inputString = "Hello, World!";
+
+            // I. Search for the first occurrence of a substring
+            let substring = "World";
+            let firstOccurrenceIndex = inputString.indexOf(substring);
+
+            // II. Return the character at a specified index
+            let charAtIndex = inputString.charAt(7); // Index 7 corresponds to 'W'
+
+            // III. Concatenate two string objects
+            let anotherString = " How are you?";
+            let concatenatedString = inputString.concat(anotherString);
+
+            // Display results
+            document.getElementById("output").innerHTML = "<b>I. First occurrence of 'World':</b> " + firstOccurrenceIndex +
+                                                            "<br><b>II. Character at index 7:</b> " + charAtIndex +
+                                                            "<br><b>III. Concatenated string:</b> " + concatenatedString;
+        }
+    </script>
+</head>
+<body>
+    <h1>String Manipulation Operations</h1>
+    <button onclick="performStringOperations()">Perform Operations</button>
+    <div id="output"></div>
+</body>
+</html>
+
+
+
+Ex.No.4: Programs using Java Script – Part III 
+4.a. Write a JavaScript program to perform the following String 
+Manipulation Operations with and without using the methods 
+of String Object. 
+I.  To search for the first occurrence of a substring in a 
+given string 
+II.  To return the character at a specified index 
+III.  To concatenate two string objects 
+4.b. Write a JavaScript that inputs text from an XHTML form and outputs 
+it in Upper case and Lower case letters. 
+4.c. Write a JavaScript that reads a Five-Letter word from the user and 
+produces all possible Three-Letter words that can be derived from 
+the letters of the Five-Letter word. 
+For example, the three-letter words produced from the word “bathe” 
+include the commonly used words : ate bat bet tab hat the tea 
+4.d. Write a JavaScript to display the current time and print the message 
+according to the time. For example, Good Morning in Morning, 
+Good After Noon in Noon, Good Evening in evening and Good 
+Night in Night. 
+4.e. Write a JavaScript program to perform Merge Sort for a given set of 
+N numbers dynamically prompted from the user. (Use user defined 
+function to perform Merge Sort). 
+_______________________________________________________________________________ 

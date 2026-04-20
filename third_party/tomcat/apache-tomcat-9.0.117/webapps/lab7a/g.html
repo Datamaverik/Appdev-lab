@@ -1,0 +1,40 @@
+<!-- . Create a three-tier distributed application that displays the user interface in a browser
+using XHTML. The middle tier is a JSP that handles requests from the client browser
+and provides access to the third tier—a Cloudscape database accessed via JDBC. The
+JSP in this example is a survey that allows users to vote for their favorite animal. The
+document Survey.html contains five radio buttons (Dog, Cat, Parrot, Cow and None)
+and a Submit button. When the JSP receives a post request from the Survey.html
+document, the JSP updates the total number of votes for that animal in the database
+and returns a dynamically generated XHTML document containing the survey results
+to the client. The result should display the number of responses and vote percentage
+for each pet. Also display the total number of responses obtained.
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animal Survey</title>
+</head>
+<body>
+    <h1>Animal Survey</h1>
+    <form action="g.jsp" method="post">
+        <input type="radio" name="animal" value="Dog"> Dog<br>
+        <input type="radio" name="animal" value="Cat"> Cat<br>
+        <input type="radio" name="animal" value="Parrot"> Parrot<br>
+        <input type="radio" name="animal" value="Cow"> Cow<br>
+        <input type="radio" name="animal" value="None"> None<br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+
+Create a three-tier distributed application that displays the user interface in a browser 
+using XHTML. The middle tier is a JSP that handles requests from the client browser 
+and provides access to the third tier—a Cloudscape database accessed via JDBC. The 
+JSP in this example is a survey that allows users to vote for their favorite animal. The 
+document Survey.html contains five radio buttons (Dog, Cat, Parrot, Cow and None) 
+and a Submit button. When the JSP receives a post request from the Survey.html 
+document, the JSP updates the total number of votes for that animal in the database 
+and returns a dynamically generated XHTML document containing the survey results 
+to the client. The result should display the number of responses and vote percentage 
+for each pet. Also display the total number of responses obtained. 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Three-Letter Words</title>
+    <script>
+        function generateThreeLetterWords() {
+            // Get the five-letter word from the user
+            let fiveLetterWord = document.getElementById("fiveLetterWord").value;
+
+            // Check if the input is exactly five letters long
+            if (fiveLetterWord.length !== 5) {
+                alert("Please enter a five-letter word.");
+                return;
+            }
+
+            // Create an array to store all possible three-letter words
+            let threeLetterWords = [];
+
+            // Generate all possible combinations of three-letter words
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 5; j++) {
+                    for (let k = 0; k < 5; k++) {
+                        if (i !== j && i !== k && j !== k) {
+                            let word = fiveLetterWord[i] + fiveLetterWord[j] + fiveLetterWord[k];
+                            threeLetterWords.push(word);
+                        }
+                    }
+                }
+            }
+
+            // Display the generated three-letter words
+            document.getElementById("result").innerHTML = "<b>Three-Letter Words:</b> " + threeLetterWords.join(", ");
+        }
+    </script>
+</head>
+<body>
+    <h1>Generate Three-Letter Words</h1>
+    <label for="fiveLetterWord">Enter a Five-Letter Word:</label>
+    <input type="text" id="fiveLetterWord">
+    <button onclick="generateThreeLetterWords()">Generate</button>
+    <div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Web Pages with DHTML</title>
+<style>
+    /* Style for frames */
+    #upperFrame {
+        width: 100%;
+        height: 50%;
+        border: 1px solid black;
+    }
+
+    #lowerFrame {
+        width: 100%;
+        height: 50%;
+        border: 1px solid black;
+    }
+
+    /* Style for images */
+    .image {
+        width: 30%;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    .displayedImage {
+        width: 100%;
+    }
+</style>
+<script>
+    // Function to display image in the lower frame
+    function displayImage(imageSrc) {
+        document.getElementById('displayArea').innerHTML = '<img src="' + imageSrc + '" class="displayedImage" onclick="clearImage()">';
+    }
+
+    function clearImage() {
+        document.getElementById('displayArea').innerHTML = '';
+    }
+</script>
+</head>
+<body>
+
+<div id="upperFrame"></div>
+<div id="lowerFrame">
+    <div id="displayArea"></div>
+</div>
+
+<script>
+    var images = ['image1.jpg', 'image2.jpg', 'image3.jpg'];
+
+    function loadImages() {
+        var imageHTML = '';
+        for (var i = 0; i < images.length; i++) {
+            imageHTML += '<img src="' + images[i] + '" class="image" onclick="displayImage(\'' + images[i] + '\')">';
+        }
+        document.getElementById('upperFrame').innerHTML = imageHTML;
+    }
+
+    window.onload = loadImages;
+</script>
+
+</body>
+</html>
+
+
+
+Ex.No.5: Creation of Dynamic Web pages DHTML – Part I 
+6.a. Write a DHTML code to move the text randomly on the web page 
+where the color and font-size of the text vary dynamically. 
+6.b. Add an image to the web page. Write a DHTML code that corresponds to    
+the movement of mouse any where on the page. Display the element name   
+along with its (X,Y) co-ordinates, whenever the mouse is moved over the    
+page. 
+6.c. Design a web page using DHTML such that one image gets loaded when  
+the mouse is moved over the page and another image gets loaded when the  
+mouse loses its control inside the page. 
+6.d. Write a DHTML code to display all the XHTML elements in a document,  
+in the order in which they appear using all and child collections. 
+6.e. Write a DHTML code that responds to a click anywhere on the page by  
+displaying an alert dialog. Display the event name if the user held SHIFT 
+during the mouse click. Display the element name that triggered the event  
+if the user held CTRL during the mouse click. 
+__________________________________________________________________________________ 

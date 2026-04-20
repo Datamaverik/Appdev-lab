@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Text Animation</title>
+<style>
+#movingText {
+  position: absolute;
+  font-size: 20px;
+  color: black;
+}
+</style>
+</head>
+<body>
+<div id="movingText">Hello, World!</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var movingText = document.getElementById('movingText');
+  
+  function moveText() {
+    var windowWidth = window.innerWidth;
+    var windowHeight = window.innerHeight;
+    var textWidth = movingText.offsetWidth;
+    var textHeight = movingText.offsetHeight;
+    
+    var newX = Math.random() * (windowWidth - textWidth);
+    var newY = Math.random() * (windowHeight - textHeight);
+    
+    var newColor = '#' + Math.floor(Math.random()*16777215).toString(16); // Random color
+    var newSize = Math.floor(Math.random() * 30) + 10; // Random font-size between 10px and 40px
+    
+    movingText.style.left = newX + 'px';
+    movingText.style.top = newY + 'px';
+    movingText.style.color = newColor;
+    movingText.style.fontSize = newSize + 'px';
+  }
+  
+  setInterval(moveText, 1000); // Change text position and style every second
+});
+</script>
+</body>
+</html>

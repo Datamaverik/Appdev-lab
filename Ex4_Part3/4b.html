@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convert Text to Upper and Lower Case</title>
+    <script>
+        function convertCase() {
+            // Get the input text from the form
+            let inputText = document.getElementById("inputText").value;
+            
+            // Convert to upper case
+            let upperCaseText = inputText.toUpperCase();
+            
+            // Convert to lower case
+            let lowerCaseText = inputText.toLowerCase();
+
+            // Display the converted text
+            document.getElementById("upperCaseOutput").innerText = "Upper Case: " + upperCaseText;
+            document.getElementById("lowerCaseOutput").innerText = "Lower Case: " + lowerCaseText;
+        }
+    </script>
+</head>
+<body>
+    <h1>Convert Text to Upper and Lower Case</h1>
+    <form>
+        <label for="inputText">Enter Text:</label>
+        <input type="text" id="inputText"><br><br>
+        <button type="button" onclick="convertCase()">Convert Case</button>
+    </form>
+    <div id="upperCaseOutput"></div>
+    <div id="lowerCaseOutput"></div>
+</body>
+</html>

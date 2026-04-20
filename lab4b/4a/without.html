@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Manipulation Operations</title>
+    <script>
+        function searchLastOccurrence(string, substring) {
+            // Without using String object methods
+            let lastIndex = -1;
+            for (let i = 0; i <= string.length - substring.length; i++) {
+                let j;
+                for (j = 0; j < substring.length; j++) {
+                    if (string[i + j] !== substring[j]) {
+                        break;
+                    }
+                }
+                if (j === substring.length) {
+                    lastIndex = i; // Update last occurrence index
+                }
+            }
+            return lastIndex;
+        }
+
+        function extractSubstring(string, startIndex, endIndex) {
+            // Without using String object methods
+            let substring = "";
+            for (let i = startIndex; i < endIndex; i++) {
+                substring += string[i];
+            }
+            return substring;
+        }
+
+        function splitString(string, separator) {
+            // Without using String object methods
+            let substrings = [];
+            let startIndex = 0;
+            for (let i = 0; i < string.length; i++) {
+                if (string[i] === separator) {
+                    substrings.push(extractSubstring(string, startIndex, i));
+                    startIndex = i + 1;
+                }
+            }
+            if (startIndex < string.length) {
+                substrings.push(extractSubstring(string, startIndex, string.length));
+            }
+            return substrings;
+        }
+
+        function performStringOperations() {
+            let string = prompt("Enter the string:");
+            let substringToSearch = prompt("Enter the substring to search:");
+            let startIndex = parseInt(prompt("Enter the start index for extraction:"));
+            let endIndex = parseInt(prompt("Enter the end index for extraction:"));
+            let separator = prompt("Enter the separator for splitting:");
+
+            let lastOccurrenceIndex = searchLastOccurrence(string, substringToSearch);
+            let extractedSubstring = extractSubstring(string, startIndex, endIndex);
+            let splittedString = splitString(string, separator);
+
+
+            alert("Last occurrence of '" + substringToSearch + "' found at index: " + lastOccurrenceIndex +
+                  "\nExtracted substring: " + extractedSubstring +
+                  "\nSplitted substrings: " + splittedString.join(", "));
+        }
+    </script>
+</head>
+<body>
+    <h1>String Manipulation Operations</h1>
+    <button onclick="performStringOperations()">Perform Operations</button>
+</body>
+</html>

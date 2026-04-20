@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game of 15</title>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    td {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .empty {
+        background-color: lightgray;
+    }
+</style>
+<script>
+    function initializeGame() {
+        var numbers = [];
+        for (var i = 0; i < 15; i++) {
+            numbers.push(i + 1);
+        }
+        numbers.sort(function(a, b){return 0.5 - Math.random()});
+        var tiles = document.querySelectorAll('td:not(.empty)');
+        for (var i = 0; i < tiles.length; i++) {
+            tiles[i].textContent = numbers[i];
+        }
+    }
+
+    function moveTile(tile) {
+        var emptySlot = document.querySelector('.empty');
+        if (Math.abs(tile.cellIndex - emptySlot.cellIndex) + Math.abs(tile.parentNode.rowIndex - emptySlot.parentNode.rowIndex) === 1) {
+            emptySlot.textContent = tile.textContent;
+            tile.textContent = '';
+            tile.className = 'empty';
+            emptySlot.className = '';
+        }
+
+        if (isGameWon()) {
+            alert("Congratulations! You've won the game!");
+        }
+    }
+
+    function isGameWon() {
+        var tiles = document.querySelectorAll('td:not(.empty)');
+        for (var i = 0; i < tiles.length; i++) {
+            if (parseInt(tiles[i].textContent) !== i + 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</head>
+<body onload="initializeGame()">
+
+<table>
+    <tbody>
+        <tr>
+            <td class="empty" onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+        </tr>
+        <tr>
+            <td onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+        </tr>
+        <tr>
+            <td onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+        </tr>
+        <tr>
+            <td onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+            <td onclick="moveTile(this)"></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

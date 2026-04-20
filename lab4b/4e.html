@@ -1,0 +1,92 @@
+<!-- write a JavaScript that reads several lines of text and prints a table
+ indicating the number of one-letter words, two-letter words, three-
+ letter words, etc. appearing in the text, in a tabular form.
+ For example, the sentence Welcome to “Java” Lab.
+ contains: -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Length Count</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        function countWordLengths() {
+            // Get the input text
+            let inputText = document.getElementById("inputText").value;
+            
+            // Initialize an object to store word lengths and their occurrences
+            let wordLengths = {};
+
+            // Split the input text into words
+            let words = inputText.match(/\b\w+\b/g);
+
+            // Count occurrences of words of different lengths
+            if (words) {
+                for (let word of words) {
+                    let length = word.length;
+                    if (wordLengths[length]) {
+                        wordLengths[length]++;
+                    } else {
+                        wordLengths[length] = 1;
+                    }
+                }
+            }
+
+            // Determine the maximum word length
+            let maxLength = Math.max(...Object.keys(wordLengths));
+
+            // Display the results in a table
+            let tableContent = "<tr><th>Word Length</th><th>Occurrences</th></tr>";
+            for (let i = 1; i <= maxLength; i++) {
+                let occurrence = wordLengths[i] || 0;
+                tableContent += "<tr><td>" + i + "</td><td>" + occurrence + "</td></tr>";
+            }
+            document.getElementById("resultTable").innerHTML = tableContent;
+        }
+    </script>
+</head>
+<body>
+    <h1>Word Length Count</h1>
+    <textarea id="inputText" rows="5" cols="50"></textarea>
+    <br><br>
+    <button onclick="countWordLengths()">Count Word Lengths</button>
+    <br><br>
+    <table id="resultTable"></table>
+</body>
+</html>
+
+
+write a JavaScript that reads several lines of text and prints a table  
+indicating the number of one-letter words, two-letter words, three- 
+letter words, etc. appearing in the text, in a tabular form.  
+For example, the sentence Welcome to “Java” Lab.    
+contains :    
+Word Length 
+Occurrences 
+1 
+0 
+2 
+1 
+3 
+0 
+4 
+1 
+5 
+0 
+6 
+1 
+7 
+1

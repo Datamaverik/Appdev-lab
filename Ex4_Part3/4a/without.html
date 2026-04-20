@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Manipulation Operations</title>
+    <script>
+        function searchFirstOccurrence(string, substring) {
+            // Without using String object methods
+            for (let i = 0; i <= string.length - substring.length; i++) {
+                let j;
+                for (j = 0; j < substring.length; j++) {
+                    if (string[i + j] !== substring[j]) {
+                        break;
+                    }
+                }
+                if (j === substring.length) {
+                    return i; // Found first occurrence
+                }
+            }
+            return -1; // Not found
+        }
+
+        function returnCharacterAtIndex(string, index) {
+            // Without using String object methods
+            if (index < 0 || index >= string.length) {
+                return "Index out of range";
+            }
+            return string[index];
+        }
+
+        function concatenateStrings(string1, string2) {
+            // Without using String object methods
+            let result = "";
+            for (let i = 0; i < string1.length; i++) {
+                result += string1[i];
+            }
+            for (let i = 0; i < string2.length; i++) {
+                result += string2[i];
+            }
+            return result;
+        }
+
+        function performStringOperations() {
+            let string = prompt("Enter the string:");
+            let substring = prompt("Enter the substring to search:");
+            let index = parseInt(prompt("Enter the index to return character:"));
+            let string2 = prompt("Enter the second string for concatenation:");
+
+            let firstOccurrenceIndex = searchFirstOccurrence(string, substring);
+            let characterAtIndex = returnCharacterAtIndex(string, index);
+            let concatenatedString = concatenateStrings(string, string2);
+
+            alert("First occurrence of '" + substring + "' found at index: " + firstOccurrenceIndex +
+                  "\nCharacter at index " + index + " is: " + characterAtIndex +
+                  "\nConcatenated string: " + concatenatedString);
+        }
+    </script>
+</head>
+<body>
+    <h1>String Manipulation Operations</h1>
+    <button onclick="performStringOperations()">Perform Operations</button>
+</body>
+</html>

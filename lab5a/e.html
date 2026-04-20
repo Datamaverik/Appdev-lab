@@ -1,0 +1,48 @@
+<!-- Write a DHTML code that responds to a click anywhere on the page by
+ displaying an alert dialog. Display the event name if the user held SHIFT
+ during the mouse click. Display the element name that triggered the event
+ if the user held CTRL during the mouse click. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Event Handler</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      cursor: pointer; 
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  function handleClick(event) {
+    var message = 'Mouse Clicked!\n';
+
+    // Check if SHIFT key was held during the click
+    if (event.shiftKey) {
+      message += 'SHIFT key held\n';
+      message += '\nEvent Name: ' + event.type;
+    }
+
+    // Check if CTRL key was held during the click
+    if (event.ctrlKey) {
+      // Get the element that triggered the event
+      var elementName = event.target.tagName;
+      message += 'CTRL key held\n';
+      message += 'Element: ' + elementName + '\n';
+    }
+
+    // Display the alert message
+    alert(message);
+  }
+
+  // Attach the click event handler to the document
+  document.addEventListener('click', handleClick);
+</script>
+
+</body>
+</html>

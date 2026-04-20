@@ -1,0 +1,34 @@
+. Design a Marquee that scrolls the text “WELCOME” from right to left across the  
+browser window. Set the background color to Marquee as RED and Text color as  
+WHITE.  Also set the background color to the Web page as BLUE. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Scrolling Marquee</title>
+    <style>
+        body {
+            background-color:blue;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        marquee {
+            height: 50px;
+            background-color: red;
+            color: white;
+            white-space: nowrap;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+
+<marquee behavior="scrollamount" direction="right" scrollamount="20">
+    <h3>WELCOME</h3> 
+</marquee>
+
+</body>
+</html>
+
+
+

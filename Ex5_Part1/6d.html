@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display XHTML Elements</title>
+<style>
+  #output {
+    white-space: pre-line;
+  }
+</style>
+</head>
+<body>
+
+<div id="output"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var output = document.getElementById('output');
+  var allElements = document.all; // Get all elements in the document
+
+  // Display all elements using document.all
+  output.innerHTML += 'Using document.all:\n';
+  for (var i = 0; i < allElements.length; i++) {
+    output.innerHTML += allElements[i].tagName + '\n';
+  }
+
+  // Display all elements using childNodes
+  output.innerHTML += '\nUsing childNodes:\n';
+  displayChildNodes(document.documentElement);
+
+  function displayChildNodes(node) {
+    var children = node.children;
+    for (var i = 0; i < children.length; i++) {
+      output.innerHTML += children[i].tagName + '\n';
+      displayChildNodes(children[i]);
+    }
+  }
+});
+</script>
+
+</body>
+</html>
